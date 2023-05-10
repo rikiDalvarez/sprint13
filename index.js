@@ -1,19 +1,27 @@
 //1.3: Promises & Callbacks
 
+const getEmployee = require("./getEmployee")
+const getSalary = require("./getSalary")
+
 
 //nivel 1
 //exercise 1
 const dayLight = true
-let test = (daylight) => {
-	if (dayLight) {
-		return Promise.resolve("its day light")
-	} else {
-		return Promise.reject("its not daylight")
-	}
+function returnPromise(string) {
+	return new Promise((res, rej) => {
+		if (string.length > 5) {
+			res("large name")
+		} else {
+			rej(new Error("too short name"))
+		}
+	})
 }
 
-test().then((res, rej) => console.log(res, rej))
 
+console.log(returnPromise("ricardo"))
+console.log(returnPromise("ri"))
+
+/*
 //nivel 1 
 //exercise 2
 
@@ -58,36 +66,12 @@ let salaries = [{
 	salary: 2000
 }];
 
-let getEmployee = (array, id) => {
-	return new Promise((resolve, reject) => {
-		for (let i = 0; i < array.length; i++) {
-			if (array[i].id = id) {
-				resolve(array[i])
-			} else {
-				reject(new Error("no employee found"))
-			}
-		}
-	})
-}
 
 getEmployee(employees, 1).then((employee) => console.log(employee))
 
 //nivel 2
 //exercise 2
 
-const getSalary = (array, employee) => {
-	return new Promise((resolve, reject) => {
-		for (let i = 0; i < array.length; i++) {
-			const element = array[i];
-			if (employee.id == element.id) {
-				const obj = { name: employee.name, salary: element.salary }
-				resolve(obj)
-			} else {
-				reject("no employee found")
-			}
-		}
-	})
-}
 
 getSalary(salaries, employees[0]).then((employer) => console.log(employer.salary))
 
@@ -104,4 +88,4 @@ getSalary(salaries, {
 	name: 'tata'
 }).then((employer) => console.log(employer)).catch(error => { console.error(error) })
 
-
+*/
