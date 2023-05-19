@@ -1,91 +1,61 @@
 //1.3: Promises & Callbacks
-
+const { employees, salaries } = require("./mockdata")
 const getEmployee = require("./getEmployee")
 const getSalary = require("./getSalary")
 
 
-//nivel 1
-//exercise 1
-const dayLight = true
-function returnPromise(string) {
-	return new Promise((res, rej) => {
-		if (string.length > 5) {
-			res("large name")
-		} else {
-			rej(new Error("too short name"))
-		}
-	})
-}
+// console.log(employees, salaries)
 
+//n1e1
+// create a function that return a promise with rej and res
+// function returnPromise(string) {
+// 	return new Promise((res, rej) => {
+// 		if (string.length > 5) {
+// 			res("large name")
+// 		} else {
+// 			rej(new Error("too short name"))
+// 		}
+// 	})
+// }
+// console.log(returnPromise("ricardo"), returnPromise("ri"))
 
-console.log(returnPromise("ricardo"))
-console.log(returnPromise("ri"))
+// //n1e2
+// //create a arrow function with a param and a callback funcs
+// let arrFunc = (variable, func) => {
+// 	return func(variable);
+// }
+// console.log(arrFunc("ricardo", returnPromise));
 
-/*
-//nivel 1 
-//exercise 2
-
-const hour = 23;
-
-function check(hour) {
-	if (hour < 18 && hour > 7) {
-		console.log("its day time")
-	} else {
-		console.log("its night time")
-	}
-}
-
-let arrFunc = (variable, func) => {
-	return func(variable);
-}
-
-arrFunc(hour, check);
+// const hour = 23;
+// function check(hour) {
+// 	if (hour < 18 && hour > 7) {
+// 		console.log("its day time")
+// 	} else {
+// 		console.log("its night time")
+// 	}
+// }
 
 //level 2
 //exercise 1
+const longEmployer = async (array, id) => {
+	const employer = await getEmployee(employees, 1);
+	console.log(employer)
+}
+longEmployer(employees, 1)
 
-let employees = [{
-	id: 1,
-	name: 'Linux Torvalds'
-}, {
-	id: 2,
-	name: 'Bill Gates'
-}, {
-	id: 3,
-	name: 'Jeff Bezos'
-}];
+// n2e2
+// getSalary(salaries, employees[0]).then((employer) => console.log(employer.salary))
 
-let salaries = [{
-	id: 1,
-	salary: 4000
-}, {
-	id: 2,
-	salary: 1000
-}, {
-	id: 3,
-	salary: 2000
-}];
+// //nivell 2
+// //exercise 3
 
+// getSalary(salaries, employees[0]).then((employer) => console.log(employer))
 
-getEmployee(employees, 1).then((employee) => console.log(employee))
+// //nivell 3 
+// //exercise 1
 
-//nivel 2
-//exercise 2
+// getSalary(salaries, {
+// 	id: 5,
+// 	name: 'tata'
+// }).then((employer) => console.log(employer)).catch(error => { console.error(error) })
 
-
-getSalary(salaries, employees[0]).then((employer) => console.log(employer.salary))
-
-//nivell 2
-//exercise 3
-
-getSalary(salaries, employees[0]).then((employer) => console.log(employer))
-
-//nivell 3 
-//exercise 1
-
-getSalary(salaries, {
-	id: 5,
-	name: 'tata'
-}).then((employer) => console.log(employer)).catch(error => { console.error(error) })
-
-*/

@@ -1,5 +1,5 @@
 const getSalary = (array, employee) => {
-
+	if (!Array.isArray(array)) { throw new Error("argument[0] must be array") };
 	return new Promise((resolve, reject) => {
 		for (let i = 0; i < array.length; i++) {
 			const element = array[i];
