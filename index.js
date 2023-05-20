@@ -35,16 +35,16 @@ const getSalary = require("./getSalary")
 // 	}
 // }
 
-//level 2
-//exercise 1
-const longEmployer = async (array, id) => {
-	const employer = await getEmployee(array, id);
-	console.log(employer)
-}
-longEmployer(employees, 1)
+//n2e1
+// const longEmployer = async (array, id) => {
+// 	const employer = await getEmployee(array, id);
+// 	console.log(employer)
+// }
+// longEmployer(employees, 2)
 
 // n2e2
-// getSalary(salaries, employees[0]).then((employer) => console.log(employer.salary))
+// getSalary(salaries, employees[2])
+
 
 // //nivell 2
 // //exercise 3
