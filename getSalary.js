@@ -6,18 +6,13 @@ const getSalary = (array, employee) => {
 				let obj = { name: employee.name, salary: item.salary }
 				return obj
 			}
-		})
-		// for (let i = 0; i < array.length; i++) {
-		// 	const element = array[i];
-		// 	if (employee.id === element.id) {
-		// 		const obj = { name: employee.name, salary: element.salary }
+		});
 		if (employerSalary) {
 			console.log(employerSalary)
 			resolve(employerSalary)
-		} else
-		// }
-		// }
-		{ reject('not employee found') }
+		} else {
+			reject('not employee found')
+		}
 	})
 }
 
