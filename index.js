@@ -36,7 +36,12 @@ getSalary(salaries, employees[2])
 
 
 // n2e3
-getSalary(salaries, employees[2])
+const getSalaryAndEmployer = async (employees, salaries, id) => {
+	const employer = await getEmployee(employees, id)
+	if (employer) return getSalary(salaries, employer)
+}
+
+getSalaryAndEmployer(employees, salaries, 3)
 
 //n3e1
 
